@@ -4,3 +4,5 @@
 
 layout: home
 ---
+
+Hi! This site is currently a work in progress.
