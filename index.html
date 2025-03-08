@@ -3,94 +3,199 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gavin Hua</title>
+    <title>Gavin Hua | Electrical Engineering</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Inline CSS to avoid path issues */
+        /* Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --gradient-start: #1a2a6c;
+            --gradient-mid: #b21f1f;
+            --gradient-end: #fdbb2d;
+            --text-color: #333;
+            --light-text: #ecf0f1;
+            --card-bg: rgba(255, 255, 255, 0.95);
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
         body {
             font-family: 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f5f5f5;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+            background-attachment: fixed;
+            position: relative;
+            min-height: 100vh;
             padding: 20px;
         }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 40px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        /* EE Symbols Background */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200' opacity='0.05'%3E%3C!-- Resistor --%3E%3Cpath d='M20,30 L30,30 L32,25 L36,35 L40,25 L44,35 L48,25 L52,35 L56,25 L60,35 L62,30 L72,30' stroke='white' fill='none' stroke-width='2'/%3E%3C!-- Capacitor --%3E%3Cpath d='M85,25 L85,35 M95,25 L95,35' stroke='white' stroke-width='2'/%3E%3C!-- Inductor --%3E%3Cpath d='M20,70 L25,70 C30,70 30,65 35,65 C40,65 40,70 45,70 C50,70 50,65 55,65 C60,65 60,70 65,70 L70,70' stroke='white' fill='none' stroke-width='2'/%3E%3C!-- Transistor --%3E%3Ccircle cx='130' cy='30' r='10' stroke='white' fill='none' stroke-width='2'/%3E%3Cpath d='M130,20 L130,10 M130,40 L130,50 M120,30 L110,20 M120,30 L110,40' stroke='white' stroke-width='2'/%3E%3C!-- Diode --%3E%3Cpath d='M85,70 L95,60 L95,80 Z' stroke='white' fill='none' stroke-width='2'/%3E%3Cpath d='M85,60 L85,80 M95,70 L105,70' stroke='white' stroke-width='2'/%3E%3C!-- IC --%3E%3Crect x='120' y='60' width='30' height='20' stroke='white' fill='none' stroke-width='2'/%3E%3Cpath d='M125,60 L125,55 M130,60 L130,55 M135,60 L135,55 M140,60 L140,55 M125,80 L125,85 M130,80 L130,85 M135,80 L135,85 M140,80 L140,85' stroke='white' stroke-width='2'/%3E%3C!-- Logic gate --%3E%3Cpath d='M30,100 L30,120 L40,110 Z' stroke='white' fill='none' stroke-width='2'/%3E%3Cpath d='M40,110 L50,110' stroke='white' stroke-width='2'/%3E%3Ccircle cx='45' cy='110' r='2' stroke='white' fill='none'/%3E%3C!-- Microcontroller --%3E%3Crect x='70' y='100' width='30' height='20' rx='2' ry='2' stroke='white' fill='none' stroke-width='2'/%3E%3Cpath d='M75,100 L75,95 M80,100 L80,95 M85,100 L85,95 M90,100 L90,95 M75,120 L75,125 M80,120 L80,125 M85,120 L85,125 M90,120 L90,125' stroke='white' stroke-width='2'/%3E%3C!-- Opamp --%3E%3Cpath d='M120,100 L120,120 L140,110 Z' stroke='white' fill='none' stroke-width='2'/%3E%3Cpath d='M125,105 L130,105 M127.5,102.5 L127.5,107.5 M125,115 L130,115' stroke='white' stroke-width='2'/%3E%3C!-- Waveform --%3E%3Cpath d='M20,150 L25,150 L25,140 L35,140 L35,150 L45,150 L45,140 L55,140 L55,150 L60,150' stroke='white' fill='none' stroke-width='2'/%3E%3C!-- PCB trace --%3E%3Cpath d='M70,140 C80,140 75,160 90,160 C105,160 100,140 110,140 C120,140 115,160 130,160' stroke='white' fill='none' stroke-width='2'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            opacity: 0.8;
         }
 
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Circuit Board Border Effect */
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, transparent 0%, var(--accent-color) 25%, var(--accent-color) 75%, transparent 100%);
+        }
+
+        /* Typography */
         h1, h2, h3 {
             font-weight: 600;
-            margin-bottom: 10px;
-            color: #2c3e50;
+            color: var(--primary-color);
         }
 
         h1 {
-            font-size: 2.2em;
+            font-size: 2.5em;
             text-align: center;
             margin-bottom: 5px;
+            background: linear-gradient(90deg, var(--gradient-start), var(--primary-color), var(--gradient-mid));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
-            font-size: 1.5em;
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 5px;
-            margin-top: 25px;
-            margin-bottom: 15px;
+            font-size: 1.6em;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color), transparent);
         }
 
         h3 {
-            font-size: 1.2em;
-            margin-bottom: 5px;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+            color: var(--accent-color);
         }
 
         a {
-            color: #3498db;
+            color: var(--accent-color);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         a:hover {
+            color: #2980b9;
             text-decoration: underline;
         }
 
         ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin-bottom: 10px;
+            list-style-type: none;
+            padding-left: 5px;
+            margin-bottom: 15px;
         }
 
         li {
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: "⚡";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
         }
 
         /* Header Styles */
         header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .contact-info {
             text-align: center;
-            margin-top: 5px;
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         .contact-info span {
-            margin: 0 5px;
+            margin: 0 10px;
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(52, 152, 219, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .contact-info span:hover {
+            transform: translateY(-2px);
+            background-color: rgba(52, 152, 219, 0.2);
+        }
+
+        .contact-info i {
+            margin-right: 8px;
+            color: var(--accent-color);
         }
 
         /* Section Styles */
         section {
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
 
         .section-content {
@@ -102,47 +207,78 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
         .entry-details {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .date {
             font-style: italic;
             color: #7f8c8d;
+            font-size: 0.9em;
+            display: inline-block;
+            background-color: rgba(0, 0, 0, 0.05);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-top: 4px;
         }
 
         .location {
             color: #7f8c8d;
+            font-weight: 600;
         }
 
         .entry-description {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 3px solid rgba(52, 152, 219, 0.3);
         }
 
         .experience-entry, .project-entry, .education-entry {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-entry:last-child, .project-entry:last-child, .education-entry:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
         }
 
         /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(1, 1fr);
-            gap: 10px;
+            gap: 15px;
         }
 
         .skill-category {
             margin-bottom: 10px;
+            padding: 10px 15px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-3px);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        .skill-category strong {
+            color: var(--accent-color);
+            margin-right: 5px;
         }
 
         /* Footer Styles */
         footer {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 40px;
             font-size: 0.9em;
-            color: #7f8c8d;
+            color: var(--light-text);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         /* Responsive Design */
@@ -150,7 +286,53 @@
             .skills-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
+            .contact-info {
+                justify-content: center;
+            }
         }
+
+        @media (max-width: 767px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+
+            .entry-header {
+                flex-direction: column;
+            }
+
+            .location {
+                margin-top: 5px;
+            }
+        }
+
+        /* Animation for the header */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        section {
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        #education { animation-delay: 0.2s; }
+        #experience { animation-delay: 0.4s; }
+        #projects { animation-delay: 0.6s; }
+        #skills { animation-delay: 0.8s; }
     </style>
 </head>
 <body>
@@ -158,11 +340,9 @@
         <header>
             <h1>Gavin Hua</h1>
             <div class="contact-info">
-                <p>
-                    <span><i class="fas fa-phone"></i> +1 (310) 340-3923</span> | 
-                    <span><i class="fas fa-envelope"></i> <a href="mailto:gavin.hyl@outlook.com">gavin.hyl@outlook.com</a></span> | 
-                    <span><i class="fab fa-github"></i> <a href="https://github.com/gavin-hyl" target="_blank">github.com/gavin-hyl</a></span>
-                </p>
+                <span><i class="fas fa-phone"></i> +1 (310) 340-3923</span>
+                <span><i class="fas fa-envelope"></i> <a href="mailto:gavin.hyl@outlook.com">gavin.hyl@outlook.com</a></span>
+                <span><i class="fab fa-github"></i> <a href="https://github.com/gavin-hyl" target="_blank">github.com/gavin-hyl</a></span>
             </div>
         </header>
 
