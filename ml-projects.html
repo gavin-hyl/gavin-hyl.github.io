@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Projects | Gavin Hua</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">GH</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="ml-projects.html" class="active">ML Projects</a></li>
+                <li><a href="ee-projects.html">EE Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <div class="page-title">
+            <h1>Machine Learning Projects</h1>
+            <p>Exploring data-driven intelligence through algorithms and models</p>
+        </div>
+    </div>
+
+    <section id="mcts" class="project-section">
+        <div class="container">
+            <div class="project-details">
+                <div class="project-image">
+                    <svg width="100%" height="300" viewBox="0 0 600 300">
+                        <!-- MCTS Tree Visualization -->
+                        <rect width="600" height="300" fill="#f8f9fa" />
+                        
+                        <!-- Root node -->
+                        <circle cx="300" cy="50" r="25" fill="#3498db" />
+                        <text x="300" y="55" text-anchor="middle" fill="white" font-weight="bold">Root</text>
+                        
+                        <!-- Level 1 nodes -->
+                        <circle cx="150" cy="120" r="20" fill="#2ecc71" />
+                        <text x="150" y="125" text-anchor="middle" fill="white" font-weight="bold">A</text>
+                        
+                        <circle cx="300" cy="120" r="20" fill="#e74c3c" />
+                        <text x="300" y="125" text-anchor="middle" fill="white" font-weight="bold">B</text>
+                        
+                        <circle cx="450" cy="120" r="20" fill="#f39c12" />
+                        <text x="450" y="125" text-anchor="middle" fill="white" font-weight="bold">C</text>
+                        
+                        <!-- Connecting lines level 0-1 -->
+                        <line x1="300" y1="75" x2="150" y2="100" stroke="#333" stroke-width="2" />
+                        <line x1="300" y1="75" x2="300" y2="100" stroke="#333" stroke-width="2" />
+                        <line x1="300" y1="75" x2="450" y2="100" stroke="#333" stroke-width="2" />
+                        
+                        <!-- Level 2 nodes -->
+                        <circle cx="100" cy="190" r="15" fill="#2ecc71" opacity="0.8" />
+                        <text x="100" y="195" text-anchor="middle" fill="white" font-weight="bold">A1</text>
+                        
+                        <circle cx="180" cy="190" r="15" fill="#2ecc71" opacity="0.8" />
+                        <text x="180" y="195" text-anchor="middle" fill="white" font-weight="bold">A2</text>
+                        
+                        <circle cx="260" cy="190" r="15" fill="#e74c3c" opacity="0.8" />
+                        <text x="260" y="195" text-anchor="middle" fill="white" font-weight="bold">B1</text>
+                        
+                        <circle cx="330" cy="190" r="15" fill="#e74c3c" opacity="0.8" />
+                        <text x="330" y="195" text-anchor="middle" fill="white" font-weight="bold">B2</text>
+                        
+                        <circle cx="410" cy="190" r="15" fill="#f39c12" opacity="0.8" />
+                        <text x="410" y="195" text-anchor="middle" fill="white" font-weight="bold">C1</text>
+                        
+                        <circle cx="490" cy="190" r="15" fill="#f39c12" opacity="0.8" />
+                        <text x="490" y="195" text-anchor="middle" fill="white" font-weight="bold">C2</text>
+                        
+                        <!-- Connect lines level 1-2 -->
+                        <line x1="150" y1="140" x2="100" y2="175" stroke="#333" stroke-width="1.5" />
+                        <line x1="150" y1="140" x2="180" y2="175" stroke="#333" stroke-width="1.5" />
+                        <line x1="300" y1="140" x2="260" y2="175" stroke="#333" stroke-width="1.5" />
+                        <line x1="300" y1="140" x2="330" y2="175" stroke="#333" stroke-width="1.5" />
+                        <line x1="450" y1="140" x2="410" y2="175" stroke="#333" stroke-width="1.5" />
+                        <line x1="450" y1="140" x2="490" y2="175" stroke="#333" stroke-width="1.5" />
+                        
+                        <!-- Level 3 nodes (simplified) -->
+                        <circle cx="100" cy="250" r="10" fill="#2ecc71" opacity="0.6" />
+                        <circle cx="140" cy="250" r="10" fill="#2ecc71" opacity="0.6" />
+                        <circle cx="180" cy="250" r="10" fill="#2ecc71" opacity="0.6" />
+                        <circle cx="220" cy="250" r="10" fill="#2ecc71" opacity="0.6" />
+                        <circle cx="260" cy="250" r="10" fill="#e74c3c" opacity="0.6" />
+                        <circle cx="300" cy="250" r="10" fill="#e74c3c" opacity="0.6" />
+                        <circle cx="340" cy="250" r="10" fill="#e74c3c" opacity="0.6" />
+                        <circle cx="380" cy="250" r="10" fill="#e74c3c" opacity="0.6" />
+                        <circle cx="420" cy="250" r="10" fill="#f39c12" opacity="0.6" />
+                        <circle cx="460" cy="250" r="10" fill="#f39c12" opacity="0.6" />
+                        <circle cx="500" cy="250" r="10" fill="#f39c12" opacity="0.6" />
+                        
+                        <!-- Connect lines level 2-3 (simplified) -->
+                        <line x1="100" y1="205" x2="100" y2="240" stroke="#333" stroke-width="1" />
+                        <line x1="100" y1="205" x2="140" y2="240" stroke="#333" stroke-width="1" />
+                        <line x1="180" y1="205" x2="180" y2="240" stroke="#333" stroke-width="1" />
+                        <line x1="180" y1="205" x2="220" y2="240" stroke="#333" stroke-width="1" />
+                        <line x1="260" y1="205" x2="260" y2="240" stroke="#333" stroke-width="1" />
+                        <line x1="260" y1="205" x2="300" y2="240" stroke="#333" stroke-width="1" />
+                        <line x1="330" y1="205" x2="340" y2="240" stroke="#333" stroke-width="1" />
+                        <line x1="330" y1="205" x2="380" y2="240" stroke="#333" stroke-width="1" />
+                        <line x1="410" y1="205" x2="420" y2="240" stroke="#333" stroke-width="1" />
+                        <line x1="410" y1="205" x2="460" y2="240" stroke="#333" stroke-width="1" />
+                        <line x1="490" y1="205" x2="500" y2="240" stroke="#333" stroke-width="1" />
+                        
+                        <!-- Probability distributions (Thompson sampling) -->
+                        <rect x="30" y="270" width="540" height="20" fill="#f8f9fa" stroke="#ddd" />
+                        <path d="M30,290 C100,250 150,290 200,270 C250,250 300,290 350,270 C400,250 450,270 500,260 C550,280 570,270 570,290" fill="rgba(52, 152, 219, 0.2)" stroke="#3498db" stroke-width="2" />
+                    </svg>
+                </div>
+                <div class="project-info">
+                    <h2>Monte Carlo Tree Search with Thompson Sampling</h2>
+                    <div class="project-tags">
+                        <span class="project-tag">Reinforcement Learning</span>
+                        <span class="project-tag">MCTS</span>
+                        <span class="project-tag">Bayesian Methods</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                    <p>I'm developing a novel variation of the Monte Carlo Tree Search (MCTS) algorithm that leverages Thompson sampling for more efficient and statistically motivated tree traversal and node expansion.</p>
+                    <p>Traditional MCTS uses the UCB1 formula for the exploration-exploitation tradeoff, but my approach replaces this with Bayesian posterior sampling to more effectively handle uncertainty in the value estimates.</p>
+                    <p>This project aims to improve the algorithm's performance in domains with high branching factors and noisy rewards, which are common challenges in robotics applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="customer-churn" class="project-section">
+        <div class="container">
+            <div class="project-details">
+                <div class="project-info">
+                    <h2>Customer Churn Prediction</h2>
+                    <div class="project-tags">
+                        <span class="project-tag">Machine Learning</span>
+                        <span class="project-tag">Ensemble Methods</span>
+                        <span class="project-tag">Classification</span>
+                        <span class="project-tag">PyTorch</span>
+                    </div>
+                    <p>For this project, I developed a comprehensive ensemble model to predict whether customers would discontinue telephone service based on historical usage patterns and demographic data.</p>
+                    <p>The ensemble combines multiple algorithms including:</p>
+                    <ul>
+                        <li>Gradient Boosted Decision Trees (Adaboost)</li>
+                        <li>Random Forests with optimized hyperparameters</li>
+                        <li>Deep Neural Networks with custom architecture</li>
+                    </ul>
+                    <p>This approach achieved 1st place in prediction accuracy in the course among 50+ competing models. The project demonstrates the power of combining different machine learning paradigms to improve predictive performance.</p>
+                </div>
+                <div class="project-image">
+                    <svg width="100%" height="300" viewBox="0 0 600 300">
+                        <!-- Ensemble Model Visualization -->
+                        <rect width="600" height="300" fill="#f8f9fa" />
+                        
+                        <!-- Input Layer -->
+                        <text x="50" y="30" font-weight="bold">Customer Data</text>
+                        <rect x="20" y="40" width="100" height="200" rx="5" fill="#ecf0f1" stroke="#bdc3c7" />
+                        
+                        <!-- Input Nodes -->
+                        <circle cx="70" cy="70" r="10" fill="#3498db" />
+                        <circle cx="70" cy="100" r="10" fill="#3498db" />
+                        <circle cx="70" cy="130" r="10" fill="#3498db" />
+                        <circle cx="70" cy="160" r="10" fill="#3498db" />
+                        <circle cx="70" cy="190" r="10" fill="#3498db" />
+                        <circle cx="70" cy="220" r="10" fill="#3498db" />
+                        
+                        <!-- Models -->
+                        <text x="200" y="70" font-weight="bold">AdaBoost</text>
+                        <rect x="170" y="80" width="100" height="40" rx="5" fill="#e74c3c" stroke="#c0392b" />
+                        
+                        <text x="200" y="150" font-weight="bold">Random Forest</text>
+                        <rect x="170" y="160" width="100" height="40" rx="5" fill="#2ecc71" stroke="#27ae60" />
+                        
+                        <text x="200" y="230" font-weight="bold">Neural Network</text>
+                        <rect x="170" y="240" width="100" height="40" rx="5" fill="#9b59b6" stroke="#8e44ad" />
+                        
+                        <!-- Connecting lines -->
+                        <line x1="80" y1="70" x2="170" y2="100" stroke="#333" stroke-width="1" />
+                        <line x1="80" y1="100" x2="170" y2="100" stroke="#333" stroke-width="1" />
+                        <line x1="80" y1="130" x2="170" y2="100" stroke="#333" stroke-width="1" />
+                        <line x1="80" y1="160" x2="170" y2="180" stroke="#333" stroke-width="1" />
+                        <line x1="80" y1="190" x2="170" y2="180" stroke="#333" stroke-width="1" />
+                        <line x1="80" y1="220" x2="170" y2="180" stroke="#333" stroke-width="1" />
+                        
+                        <line x1="80" y1="70" x2="170" y2="260" stroke="#333" stroke-width="1" opacity="0.5" />
+                        <line x1="80" y1="100" x2="170" y2="260" stroke="#333" stroke-width="1" opacity="0.5" />
+                        <line x1="80" y1="130" x2="170" y2="260" stroke="#333" stroke-width="1" opacity="0.5" />
+                        <line x1="80" y1="160" x2="170" y2="260" stroke="#333" stroke-width="1" opacity="0.5" />
+                        <line x1="80" y1="190" x2="170" y2="260" stroke="#333" stroke-width="1" opacity="0.5" />
+                        <line x1="80" y1="220" x2="170" y2="260" stroke="#333" stroke-width="1" opacity="0.5" />
+                        
+                        <!-- Predictions -->
+                        <text x="330" y="70" font-weight="bold">Model Predictions</text>
+                        <rect x="300" y="80" width="100" height="40" rx="5" fill="#e74c3c" stroke="#c0392b" />
+                        <text x="350" y="105" text-anchor="middle" fill="white">87.2%</text>
+                        
+                        <rect x="300" y="160" width="100" height="40" rx="5" fill="#2ecc71" stroke="#27ae60" />
+                        <text x="350" y="185" text-anchor="middle" fill="white">88.5%</text>
+                        
+                        <rect x="300" y="240" width="100" height="40" rx="5" fill="#9b59b6" stroke="#8e44ad" />
+                        <text x="350" y="265" text-anchor="middle" fill="white">86.8%</text>
+                        
+                        <!-- Connecting lines -->
+                        <line x1="270" y1="100" x2="300" y2="100" stroke="#333" stroke-width="1" />
+                        <line x1="270" y1="180" x2="300" y2="180" stroke="#333" stroke-width="1" />
+                        <line x1="270" y1="260" x2="300" y2="260" stroke="#333" stroke-width="1" />
+                        
+                        <!-- Ensemble -->
+                        <text x="480" y="150" font-weight="bold">Ensemble Output</text>
+                        <rect x="450" y="160" width="100" height="40" rx="5" fill="#f39c12" stroke="#d35400" />
+                        <text x="500" y="185" text-anchor="middle" fill="white">91.3%</text>
+                        
+                        <!-- Connecting lines -->
+                        <line x1="400" y1="100" x2="450" y2="180" stroke="#333" stroke-width="1" />
+                        <line x1="400" y1="180" x2="450" y2="180" stroke="#333" stroke-width="1" />
+                        <line x1="400" y1="260" x2="450" y2="180" stroke="#333" stroke-width="1" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hmm" class="project-section">
+        <div class="container">
+            <div class="project-details">
+                <div class="project-image">
+                    <svg width="100%" height="300" viewBox="0 0 600 300">
+                        <!-- HMM Model Visualization -->
+                        <rect width="600" height="300" fill="#f8f9fa" />
+                        
+                        <text x="300" y="30" text-anchor="middle" font-weight="bold" font-size="16">Hidden Markov Model for Poetry Generation</text>
+                        
+                        <!-- Hidden States -->
+                        <circle cx="100" cy="100" r="30" fill="#3498db" />
+                        <text x="100" y="105" text-anchor="middle" fill="white" font-weight="bold">H₁</text>
+                        
+                        <circle cx="250" cy="100" r="30" fill="#3498db" />
+                        <text x="250" y="105" text-anchor="middle" fill="white" font-weight="bold">H₂</text>
+                        
+                        <circle cx="400" cy="100" r="30" fill="#3498db" />
+                        <text x="400" y="105" text-anchor="middle" fill="white" font-weight="bold">H₃</text>
+                        
+                        <circle cx="550" cy="100" r="30" fill="#3498db" />
+                        <text x="550" y="105" text-anchor="middle" fill="white" font-weight="bold">H₄</text>
+                        
+                        <!-- State Transitions -->
+                        <path d="M130,100 C175,70 205,70 220,100" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)" />
+                        <path d="M280,100 C325,70 355,70 370,100" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)" />
+                        <path d="M430,100 C475,70 505,70 520,100" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)" />
+                        
+                        <!-- Self transitions -->
+                        <path d="M100,70 C70,50 70,90 100,70" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)" />
+                        <path d="M250,70 C220,50 220,90 250,70" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)" />
+                        <path d="M400,70 C370,50 370,90 400,70" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)" />
+                        <path d="M550,70 C520,50 520,90 550,70" fill="none" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrowhead)" />
+                        
+                        <!-- Emissions -->
+                        <rect x="65" y="200" width="70" height="30" rx="5" fill="#e74c3c" />
+                        <text x="100" y="220" text-anchor="middle" fill="white">"thou"</text>
+                        <line x1="100" y1="130" x2="100" y2="200" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="5,5" />
+                        
+                        <rect x="215" y="200" width="70" height="30" rx="5" fill="#e74c3c" />
+                        <text x="250" y="220" text-anchor="middle" fill="white">"dost"</text>
+                        <line x1="250" y1="130" x2="250" y2="200" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="5,5" />
+                        
+                        <rect x="365" y="200" width="70" height="30" rx="5" fill="#e74c3c" />
+                        <text x="400" y="220" text-anchor="middle" fill="white">"love"</text>
+                        <line x1="400" y1="130" x2="400" y2="200" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="5,5" />
+                        
+                        <rect x="515" y="200" width="70" height="30" rx="5" fill="#e74c3c" />
+                        <text x="550" y="220" text-anchor="middle" fill="white">"fair"</text>
+                        <line x1="550" y1="130" x2="550" y2="200" stroke="#7f8c8d" stroke-width="2" stroke-dasharray="5,5" />
+                        
+                        <!-- Example poem -->
+                        <text x="300" y="270" text-anchor="middle" font-style="italic" fill="#7f8c8d">"Thou dost love fair beauty's grace..."</text>
+                        
+                        <!-- Arrow definition -->
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+                <div class="project-info">
+                    <h2>Shakespearean Poetry Generation</h2>
+                    <div class="project-tags">
+                        <span class="project-tag">Natural Language Processing</span>
+                        <span class="project-tag">Hidden Markov Models</span>
+                        <span class="project-tag">Generative AI</span>
+                        <span class="project-tag">Python</span>
+                    </div>
+                    <p>I created and trained a hidden Markov model (HMM) that generates Shakespearean-style poetry by learning patterns from Shakespeare's sonnets.</p>
+                    <p>The model works by:</p>
+                    <ul>
+                        <li>Learning transition probabilities between hidden states</li>
+                        <li>Modeling emission probabilities from states to words</li>
+                        <li>Using the Baum-Welch algorithm for parameter estimation</li>
+                        <li>Implementing a specialized sampling technique that maintains poetic meter</li>
+                    </ul>
+                    <p>This project demonstrates how classical probabilistic models can still produce impressive results in generative text applications, even in the era of large language models.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="additional-projects" class="project-section">
+        <div class="container">
+            <h2>Additional ML Projects</h2>
+            <div class="project-cards">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Movie Recommendation System</h3>
+                    <p>Trained matrix factorization models to identify and visualize latent factors in the MovieLens dataset, creating a personalized recommendation engine.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Matrix Factorization</span>
+                        <span class="project-tag">Recommender Systems</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Neural Style Transfer</h3>
+                    <p>Implemented a convolutional neural network approach to apply artistic styles to photographs while preserving content.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Computer Vision</span>
+                        <span class="project-tag">CNNs</span>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Time Series Forecasting</h3>
+                    <p>Explored multiple approaches to time series prediction including ARIMA, LSTM networks, and Prophet.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Time Series</span>
+                        <span class="project-tag">RNNs</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">GH</div>
+                    <p>Exploring the future of intelligent systems through research and innovation.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="resume.html">Resume</a></li>
+                        <li><a href="ml-projects.html">ML Projects</a></li>
+                        <li><a href="ee-projects.html">EE Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:gavin.hyl@outlook.com">gavin.hyl@outlook.com</a></p>
+                    <p><i class="fas fa-phone"></i> +1 (310) 340-3923</p>
+                    <div class="social-icons">
+                        <a href="https://github.com/gavin-hyl" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gavin Hua. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
