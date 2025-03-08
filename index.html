@@ -5,499 +5,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gavin Hua | Electrical Engineering</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary-color: #2c3e50;
-            --accent-color: #3498db;
-            --gradient-start: #1a2a6c;
-            --gradient-mid: #b21f1f;
-            --gradient-end: #fdbb2d;
-            --text-color: #333;
-            --light-text: #ecf0f1;
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        body {
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
-            background-attachment: fixed;
-            position: relative;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        /* EE Symbols Background */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200' opacity='0.05'%3E%3C!-- Resistor --%3E%3Cpath d='M20,30 L30,30 L32,25 L36,35 L40,25 L44,35 L48,25 L52,35 L56,25 L60,35 L62,30 L72,30' stroke='white' fill='none' stroke-width='2'/%3E%3C!-- Capacitor --%3E%3Cpath d='M85,25 L85,35 M95,25 L95,35' stroke='white' stroke-width='2'/%3E%3C!-- Inductor --%3E%3Cpath d='M20,70 L25,70 C30,70 30,65 35,65 C40,65 40,70 45,70 C50,70 50,65 55,65 C60,65 60,70 65,70 L70,70' stroke='white' fill='none' stroke-width='2'/%3E%3C!-- Transistor --%3E%3Ccircle cx='130' cy='30' r='10' stroke='white' fill='none' stroke-width='2'/%3E%3Cpath d='M130,20 L130,10 M130,40 L130,50 M120,30 L110,20 M120,30 L110,40' stroke='white' stroke-width='2'/%3E%3C!-- Diode --%3E%3Cpath d='M85,70 L95,60 L95,80 Z' stroke='white' fill='none' stroke-width='2'/%3E%3Cpath d='M85,60 L85,80 M95,70 L105,70' stroke='white' stroke-width='2'/%3E%3C!-- IC --%3E%3Crect x='120' y='60' width='30' height='20' stroke='white' fill='none' stroke-width='2'/%3E%3Cpath d='M125,60 L125,55 M130,60 L130,55 M135,60 L135,55 M140,60 L140,55 M125,80 L125,85 M130,80 L130,85 M135,80 L135,85 M140,80 L140,85' stroke='white' stroke-width='2'/%3E%3C!-- Logic gate --%3E%3Cpath d='M30,100 L30,120 L40,110 Z' stroke='white' fill='none' stroke-width='2'/%3E%3Cpath d='M40,110 L50,110' stroke='white' stroke-width='2'/%3E%3Ccircle cx='45' cy='110' r='2' stroke='white' fill='none'/%3E%3C!-- Microcontroller --%3E%3Crect x='70' y='100' width='30' height='20' rx='2' ry='2' stroke='white' fill='none' stroke-width='2'/%3E%3Cpath d='M75,100 L75,95 M80,100 L80,95 M85,100 L85,95 M90,100 L90,95 M75,120 L75,125 M80,120 L80,125 M85,120 L85,125 M90,120 L90,125' stroke='white' stroke-width='2'/%3E%3C!-- Opamp --%3E%3Cpath d='M120,100 L120,120 L140,110 Z' stroke='white' fill='none' stroke-width='2'/%3E%3Cpath d='M125,105 L130,105 M127.5,102.5 L127.5,107.5 M125,115 L130,115' stroke='white' stroke-width='2'/%3E%3C!-- Waveform --%3E%3Cpath d='M20,150 L25,150 L25,140 L35,140 L35,150 L45,150 L45,140 L55,140 L55,150 L60,150' stroke='white' fill='none' stroke-width='2'/%3E%3C!-- PCB trace --%3E%3Cpath d='M70,140 C80,140 75,160 90,160 C105,160 100,140 110,140 C120,140 115,160 130,160' stroke='white' fill='none' stroke-width='2'/%3E%3C/svg%3E");
-            background-repeat: repeat;
-            background-size: 200px 200px;
-            opacity: 0.8;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            background-color: var(--card-bg);
-            border-radius: 15px;
-            padding: 40px;
-            box-shadow: var(--shadow);
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        /* Circuit Board Border Effect */
-        .container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background: linear-gradient(90deg, transparent 0%, var(--accent-color) 25%, var(--accent-color) 75%, transparent 100%);
-        }
-
-        /* Typography */
-        h1, h2, h3 {
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        h1 {
-            font-size: 2.5em;
-            text-align: center;
-            margin-bottom: 5px;
-            background: linear-gradient(90deg, var(--gradient-start), var(--primary-color), var(--gradient-mid));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            font-size: 1.6em;
-            padding-bottom: 8px;
-            margin-top: 30px;
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary-color), var(--accent-color), transparent);
-        }
-
-        h3 {
-            font-size: 1.3em;
-            margin-bottom: 8px;
-            color: var(--accent-color);
-        }
-
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #2980b9;
-            text-decoration: underline;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 5px;
-            margin-bottom: 15px;
-        }
-
-        li {
-            margin-bottom: 8px;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        li::before {
-            content: "⚡";
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-        }
-
-        /* Header Styles */
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-info {
-            text-align: center;
-            margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .contact-info span {
-            margin: 0 10px;
-            display: inline-flex;
-            align-items: center;
-            background-color: rgba(52, 152, 219, 0.1);
-            padding: 5px 12px;
-            border-radius: 20px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .contact-info span:hover {
-            transform: translateY(-2px);
-            background-color: rgba(52, 152, 219, 0.2);
-        }
-
-        .contact-info i {
-            margin-right: 8px;
-            color: var(--accent-color);
-        }
-
-        /* Section Styles */
-        section {
-            margin-bottom: 35px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .section-content {
-            padding-left: 10px;
-        }
-
-        /* Entry Styles */
-        .entry-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 10px;
-        }
-
-        .entry-details {
-            margin-bottom: 12px;
-        }
-
-        .date {
-            font-style: italic;
-            color: #7f8c8d;
-            font-size: 0.9em;
-            display: inline-block;
-            background-color: rgba(0, 0, 0, 0.05);
-            padding: 2px 8px;
-            border-radius: 4px;
-            margin-top: 4px;
-        }
-
-        .location {
-            color: #7f8c8d;
-            font-weight: 600;
-        }
-
-        .entry-description {
-            margin-bottom: 20px;
-            padding-left: 10px;
-            border-left: 3px solid rgba(52, 152, 219, 0.3);
-        }
-
-        .experience-entry, .project-entry, .education-entry {
-            margin-bottom: 25px;
-            padding-bottom: 20px;
-            border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
-        }
-
-        .experience-entry:last-child, .project-entry:last-child, .education-entry:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 15px;
-        }
-
-        .skill-category {
-            margin-bottom: 10px;
-            padding: 10px 15px;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-3px);
-            background-color: rgba(255, 255, 255, 0.8);
-        }
-
-        .skill-category strong {
-            color: var(--accent-color);
-            margin-right: 5px;
-        }
-
-        /* Footer Styles */
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: var(--light-text);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Responsive Design */
-        @media (min-width: 768px) {
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .contact-info {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .container {
-                padding: 20px;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            h2 {
-                font-size: 1.4em;
-            }
-
-            .entry-header {
-                flex-direction: column;
-            }
-
-            .location {
-                margin-top: 5px;
-            }
-        }
-
-        /* Animation for the header */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        header {
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        section {
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out forwards;
-        }
-
-        #education { animation-delay: 0.2s; }
-        #experience { animation-delay: 0.4s; }
-        #projects { animation-delay: 0.6s; }
-        #skills { animation-delay: 0.8s; }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Gavin Hua</h1>
-            <div class="contact-info">
-                <span><i class="fas fa-phone"></i> +1 (310) 340-3923</span>
-                <span><i class="fas fa-envelope"></i> <a href="mailto:gavin.hyl@outlook.com">gavin.hyl@outlook.com</a></span>
-                <span><i class="fab fa-github"></i> <a href="https://github.com/gavin-hyl" target="_blank">github.com/gavin-hyl</a></span>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html">GH</a>
             </div>
-        </header>
-
-        <section id="education">
-            <h2>EDUCATION</h2>
-            <div class="section-content">
-                <div class="education-entry">
-                    <div class="entry-header">
-                        <h3>California Institute of Technology</h3>
-                        <span class="location">Pasadena, CA</span>
-                    </div>
-                    <div class="entry-details">
-                        <p><em>B.S. in Electrical Engineering (Intelligent Systems track) | GPA: 4.2/4.3</em></p>
-                        <p class="date">Expected Jun. 2027</p>
-                    </div>
-                    <div class="entry-description">
-                        <p><strong>Relevant Courses:</strong> ML & Data Mining, Circuit Analysis, Analog Circuit Design, Data-Driven Control, Robotics,
-                        Data Structures & Algorithms, Large Language & Vision Models, Signal Processing, Differential Geometry, ODEs</p>
-                    </div>
-                </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="resume.html">Resume</a></li>
+                <li><a href="ml-projects.html">ML Projects</a></li>
+                <li><a href="ee-projects.html">EE Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <section id="experience">
-            <h2>WORK EXPERIENCE</h2>
-            <div class="section-content">
-                <div class="experience-entry">
-                    <div class="entry-header">
-                        <h3>Autonomous Control and Robotics Lab</h3>
-                        <span class="location">Pasadena, CA</span>
-                    </div>
-                    <div class="entry-details">
-                        <p><em>Research Intern in Professor Soon-Jo Chung's group</em></p>
-                        <p class="date">Nov 2024 − Present</p>
-                    </div>
-                    <div class="entry-description">
-                        <ul>
-                            <li>Developing a variation of the Monte Carlo Tree Search (MCTS) algorithm that uses Thompson sampling for
-                            statistically motivated tree traversal and node expansion.</li>
-                            <li>Developing a box-moving reinforcement learning environment to compare baselines models with the new algorithm.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-entry">
-                    <div class="entry-header">
-                        <h3>AMBER Lab</h3>
-                        <span class="location">Pasadena, CA</span>
-                    </div>
-                    <div class="entry-details">
-                        <p><em>Summer Undergraduate Research Fellow (SURF) in Professor Aaron Ames' group</em></p>
-                        <p class="date">Mar 2024 − Sep 2024</p>
-                    </div>
-                    <div class="entry-description">
-                        <ul>
-                            <li>Developed a robust, real-time model predictive control library in C++ (5000+ LOC) for robotic systems
-                            (TORC). Interfaced with libraries such as CppAD for Auto-differentiation and IPOPT for optimization.</li>
-                            <li>Created common reduced-order dynamics models for robots and interfaces for cost functions and solvers.</li>
-                            <li>Created a unified control interface for the group's robots using ROS in both C++ and Python (Obelisk).</li>
-                            <li>Managed dependencies & build processes with CMake and used Docker for containerized library development.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="experience-entry">
-                    <div class="entry-header">
-                        <h3>Caltech Racing</h3>
-                        <span class="location">Pasadena, CA</span>
-                    </div>
-                    <div class="entry-details">
-                        <p><em>Software Lead</em></p>
-                        <p class="date">May 2024 − Oct 2024</p>
-                        <p><em>EE Team Member</em></p>
-                        <p class="date">Sep 2023 − May 2024</p>
-                    </div>
-                    <div class="entry-description">
-                        <ul>
-                            <li>Designed and implemented a PCB in Altium Designer to read pedal potentiometers and transmit it via the
-                            CAN bus. Programmed the STM32 microcontroller in C using the HAL library.</li>
-                            <li>Designed and programmed a telemetry/data acquisition system using an ESP32 to concurrently transmit vehicle
-                            information to ground control over WiFi and store information in an SD card.</li>
-                            <li>Designed onboarding lectures & projects for new members to familiarize themselves with C and electrical design.</li>
-                        </ul>
-                    </div>
+    <div class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Gavin Hua</h1>
+                <p class="subtitle">Electrical Engineering Student & Researcher</p>
+                <p class="hero-description">Exploring the intersection of robotics, control systems, and machine learning at Caltech</p>
+                <div class="hero-buttons">
+                    <a href="resume.html" class="btn btn-primary">View Resume</a>
+                    <a href="contact.html" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
-        </section>
-
-        <section id="projects">
-            <h2>RELEVANT PROJECTS</h2>
-            <div class="section-content">
-                <div class="project-entry">
-                    <div class="entry-header">
-                        <h3>Machine Learning Applications</h3>
-                    </div>
-                    <div class="entry-details">
-                        <p><em>Coursework with Professor Yisong Yue</em></p>
-                        <p class="date">Dec 2023 − Mar 2024</p>
-                    </div>
-                    <div class="entry-description">
-                        <ul>
-                            <li>Predicted whether customers will discontinue telephone service using an ensemble including Adaboost, random
-                            forests, and deep neural networks. Achieved 1st place in accuracy in the course among 50+ models.</li>
-                            <li>Trained matrix factorization models to identify and visualize latent factors in the MovieLens dataset.</li>
-                            <li>Created and trained a hidden Markov model for Shakespearean-style poem generation.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="project-entry">
-                    <div class="entry-header">
-                        <h3>Computer Engineering Applications</h3>
-                    </div>
-                    <div class="entry-details">
-                        <p><em>Coursework with Professor Glen George</em></p>
-                        <p class="date">Dec 2023 − Jun 2024</p>
-                    </div>
-                    <div class="entry-description">
-                        <ul>
-                            <li>Caltech-10 CPU Design: designed and implemented a Harvard Architecture RISC CPU in ABEL on a CPLD. Instruction set includes arithmetic operations, data/program memory addressing, I/O handling, and call/returns.</li>
-                            <li>Balance game design and implementation: assembled the PCB and coded an ATMega64 with 1500+ lines of
-                            AVR assembly. Interfaced with an MPU6500 through SPI, produced square waves on a speaker through timer
-                            interrupts, implemented LED multiplexing and button/rotary encoder debouncing.</li>
-                        </ul>
-                    </div>
+            <div class="hero-image">
+                <div class="circuit-avatar">
+                    <!-- Circuit board pattern container -->
+                    <svg viewBox="0 0 200 200" class="circuit-svg">
+                        <circle cx="100" cy="100" r="90" fill="none" stroke="#3498db" stroke-width="2"/>
+                        <!-- Circuit patterns -->
+                        <path d="M50,100 L80,100 M120,100 L150,100" stroke="#3498db" stroke-width="2"/>
+                        <path d="M100,50 L100,80 M100,120 L100,150" stroke="#3498db" stroke-width="2"/>
+                        <path d="M70,70 L85,85 M115,115 L130,130" stroke="#3498db" stroke-width="2"/>
+                        <path d="M70,130 L85,115 M115,85 L130,70" stroke="#3498db" stroke-width="2"/>
+                        <!-- Nodes -->
+                        <circle cx="100" cy="100" r="25" fill="#2c3e50" stroke="#3498db" stroke-width="2"/>
+                        <circle cx="100" cy="100" r="20" fill="#1a2a6c"/>
+                        <text x="100" y="105" text-anchor="middle" fill="white" font-family="Arial" font-weight="bold" font-size="14">GH</text>
+                    </svg>
                 </div>
             </div>
-        </section>
-
-        <section id="skills">
-            <h2>SKILLS</h2>
-            <div class="section-content">
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <p><strong>Programming Languages:</strong> Python, C++, C, AVR Assembly</p>
-                    </div>
-                    <div class="skill-category">
-                        <p><strong>Hardware Tools:</strong> Altium Designer, KiCad</p>
-                    </div>
-                    <div class="skill-category">
-                        <p><strong>Software Tools:</strong> Git/GitHub, CMake, Docker, Linux</p>
-                    </div>
-                    <div class="skill-category">
-                        <p><strong>ML/AI Tools:</strong> PyTorch, OpenCV, JAX</p>
-                    </div>
-                    <div class="skill-category">
-                        <p><strong>Languages:</strong> English (Native), Chinese (Native)</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </div>
 
+    <section class="intro">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I'm an Electrical Engineering student at Caltech, focusing on Intelligent Systems. My research and projects span robotics, control systems, machine learning, and computer engineering.</p>
+                
+                <p>Currently, I'm working on developing improved algorithms for autonomous systems and researching model predictive control for robotic applications. I'm passionate about creating solutions that bridge theoretical concepts with practical applications.</p>
+                
+                <p>When I'm not coding or designing circuits, you can find me contributing to Caltech Racing, where I serve as Software Lead.</p>
+                
+                <div class="skills-highlight">
+                    <h3>Core Competencies</h3>
+                    <div class="skills-chips">
+                        <span class="chip">Robotics</span>
+                        <span class="chip">Control Systems</span>
+                        <span class="chip">Machine Learning</span>
+                        <span class="chip">Circuit Design</span>
+                        <span class="chip">Embedded Systems</span>
+                        <span class="chip">Computer Vision</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="project-cards">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Monte Carlo Tree Search with Thompson Sampling</h3>
+                    <p>Developing a novel algorithm for statistically motivated tree traversal and node expansion in robotics applications.</p>
+                    <a href="ml-projects.html#mcts" class="btn-small">Learn More</a>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>Real-Time Model Predictive Control Library</h3>
+                    <p>C++ library with 5000+ lines of code for robotic systems, interfacing with CppAD and IPOPT.</p>
+                    <a href="ee-projects.html#mpc" class="btn-small">Learn More</a>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3>Telemetry & Data Acquisition System</h3>
+                    <p>ESP32-based system for concurrent vehicle data transmission over WiFi and SD card storage.</p>
+                    <a href="ee-projects.html#telemetry" class="btn-small">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="research">
+        <div class="container">
+            <h2>Research Experience</h2>
+            <div class="research-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Autonomous Control and Robotics Lab</h3>
+                        <p class="timeline-date">Nov 2024 - Present</p>
+                        <p>Research intern in Professor Soon-Jo Chung's group, focusing on reinforcement learning and MCTS algorithms.</p>
+                        <a href="resume.html#experience" class="btn-small">More Details</a>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>AMBER Lab</h3>
+                        <p class="timeline-date">Mar 2024 - Sep 2024</p>
+                        <p>SURF fellow in Professor Aaron Ames' group, developing robust control systems for robotic applications.</p>
+                        <a href="resume.html#experience" class="btn-small">More Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2025 Gavin Hua. All rights reserved.</p>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">GH</div>
+                    <p>Exploring the future of intelligent systems through research and innovation.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="resume.html">Resume</a></li>
+                        <li><a href="ml-projects.html">ML Projects</a></li>
+                        <li><a href="ee-projects.html">EE Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:gavin.hyl@outlook.com">gavin.hyl@outlook.com</a></p>
+                    <p><i class="fas fa-phone"></i> +1 (310) 340-3923</p>
+                    <div class="social-icons">
+                        <a href="https://github.com/gavin-hyl" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gavin Hua. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+
+            hamburger.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+        });
+    </script>
 </body>
 </html>
