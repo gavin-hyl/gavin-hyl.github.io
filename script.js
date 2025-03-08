@@ -17,10 +17,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize cards with opacity 0 and translate
     cards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
+        if (!card.classList.contains('intro-card')) {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        }
     });
 
     // Initialize project items with opacity 0 and translate
@@ -30,6 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
         item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(item);
     });
+
+    // Make sure intro card is visible immediately
+    const introCard = document.querySelector('.intro-card');
+    if (introCard) {
+        introCard.style.opacity = '1';
+        introCard.style.transform = 'none';
+    }
 
     // Add glitch effect to title on hover
     const glitchText = document.querySelector('.glitch-text');
@@ -47,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // Mouse move parallax effect for background
 document.addEventListener('mousemove', (e) => {
     const background = document.querySelector('.background-animation');
-    const particles = document.querySelector('#particles-js');
     
     // Calculate movement based on mouse position
     const x = e.clientX / window.innerWidth;
@@ -55,19 +63,16 @@ document.addEventListener('mousemove', (e) => {
     
     // Move background (slower movement)
     background.style.transform = `translate(${x * 30}px, ${y * 30}px)`;
-    
-    // Move particles canvas (faster movement)
-    particles.style.transform = `translate(${x * -15}px, ${y * -15}px)`;
 });
 
 // Particles.js Configuration
 particlesJS('particles-js', {
     particles: {
         number: {
-            value: 100,
+            value: 80,
             density: {
                 enable: true,
-                value_area: 1000
+                value_area: 800
             }
         },
         color: {
@@ -77,9 +82,9 @@ particlesJS('particles-js', {
             type: 'circle'
         },
         opacity: {
-            value: 0.6,
-            random: true,
-            animation: {
+            value: 0.5,
+            random: false,
+            anim: {
                 enable: true,
                 speed: 1,
                 opacity_min: 0.1,
@@ -89,7 +94,7 @@ particlesJS('particles-js', {
         size: {
             value: 3,
             random: true,
-            animation: {
+            anim: {
                 enable: true,
                 speed: 2,
                 size_min: 0.1,
@@ -105,25 +110,25 @@ particlesJS('particles-js', {
         },
         move: {
             enable: true,
-            speed: 3,
+            speed: 2,
             direction: 'none',
-            random: true,
+            random: false,
             straight: false,
-            out_mode: 'out',
+            out_mode: 'bounce',
             bounce: false,
             attract: {
-                enable: true,
+                enable: false,
                 rotateX: 600,
                 rotateY: 1200
             }
         }
     },
     interactivity: {
-        detect_on: 'canvas',
+        detect_on: 'window',
         events: {
             onhover: {
                 enable: true,
-                mode: 'repulse'
+                mode: ['grab', 'bubble']
             },
             onclick: {
                 enable: true,
@@ -132,12 +137,28 @@ particlesJS('particles-js', {
             resize: true
         },
         modes: {
+            grab: {
+                distance: 200,
+                line_linked: {
+                    opacity: 0.8
+                }
+            },
+            bubble: {
+                distance: 200,
+                size: 6,
+                duration: 0.3,
+                opacity: 0.8,
+                speed: 3
+            },
             repulse: {
-                distance: 100,
+                distance: 200,
                 duration: 0.4
             },
             push: {
                 particles_nb: 4
+            },
+            remove: {
+                particles_nb: 2
             }
         }
     },

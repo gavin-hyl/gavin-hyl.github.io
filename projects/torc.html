@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TORC: Model Predictive Control Library - Gavin Hua</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="background-animation"></div>
+    <div id="particles-js"></div>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">GH</a>
+            <div class="nav-links">
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../projects.html" class="nav-link active">Projects</a>
+                <a href="../blog.html" class="nav-link">Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="header">
+            <h1 class="glitch-text">TORC</h1>
+            <p class="subtitle">Model Predictive Control Library</p>
+        </header>
+        
+        <section class="content">
+            <div class="card">
+                <h2>Project Overview</h2>
+                <div class="project-image-container">
+                    <img src="../images/projects/torc/overview.jpg" alt="TORC Library Overview" class="project-image">
+                    <p class="project-image-caption">TORC Library Architecture and Components</p>
+                </div>
+                <p class="project-description">
+                    TORC is a robust, real-time Model Predictive Control (MPC) library developed in C++ for robotic systems. 
+                    The library provides a flexible framework for implementing advanced control algorithms with a focus on 
+                    performance and reliability.
+                </p>
+            </div>
+
+            <div class="card">
+                <h2>Implementation & Results</h2>
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="../images/projects/torc/implementation1.jpg" alt="TORC Implementation">
+                        <div class="gallery-caption">Real-time Control Implementation</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/projects/torc/results1.jpg" alt="TORC Results">
+                        <div class="gallery-caption">Performance Benchmarks</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../images/projects/torc/demo1.jpg" alt="TORC Demo">
+                        <div class="gallery-caption">Robot Control Demo</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Key Features</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h3>Real-time Performance</h3>
+                        <p>Optimized C++ implementation with 5000+ lines of code, ensuring fast computation for real-time control applications.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Advanced Integration</h3>
+                        <p>Seamless integration with CppAD for automatic differentiation and IPOPT for optimization.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Modular Design</h3>
+                        <p>Flexible architecture supporting various reduced-order dynamics models for different robotic systems.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Technical Details</h2>
+                <div class="tech-section">
+                    <h3>Core Technologies</h3>
+                    <ul>
+                        <li>C++ for high-performance core implementation</li>
+                        <li>CppAD for automatic differentiation</li>
+                        <li>IPOPT solver for optimization</li>
+                        <li>CMake for build system management</li>
+                    </ul>
+                    
+                    <h3>Implementation Highlights</h3>
+                    <ul>
+                        <li>Real-time constraint handling and optimization</li>
+                        <li>Custom cost function interfaces</li>
+                        <li>Efficient memory management for real-time performance</li>
+                        <li>Comprehensive error handling and system stability checks</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Results & Impact</h2>
+                <p class="project-description">
+                    TORC has been successfully implemented in various robotic systems at the AMBER Lab, 
+                    demonstrating significant improvements in control accuracy and computational efficiency. 
+                    The library's modular design has enabled rapid prototyping and testing of different 
+                    control strategies.
+                </p>
+                <div class="project-stats">
+                    <div class="stat-item">
+                        <h4>Performance Gain</h4>
+                        <p>Achieved real-time control rates up to 1kHz</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Code Quality</h4>
+                        <p>5000+ lines of optimized C++ code</p>
+                    </div>
+                    <div class="stat-item">
+                        <h4>Applications</h4>
+                        <p>Successfully deployed on multiple robotic platforms</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Future Development</h2>
+                <p class="project-description">
+                    Ongoing development focuses on expanding the library's capabilities with:
+                </p>
+                <ul>
+                    <li>Additional optimization solver interfaces</li>
+                    <li>Enhanced real-time performance optimizations</li>
+                    <li>Extended documentation and example implementations</li>
+                    <li>Integration with ROS2 ecosystem</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html> 
