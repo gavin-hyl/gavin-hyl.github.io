@@ -118,52 +118,85 @@ const particleConfigs = {
     },
     projects: {
         particles: {
-            number: { value: 60, density: { enable: true, value_area: 800 } },
-            color: { value: ['#00ffff', '#ff0080'] },
+            number: { value: 80, density: { enable: true, value_area: 1200 } },
+            color: { value: ['#00ffff', '#2d00f7'] },
             shape: {
-                type: ['circle', 'triangle'],
-                stroke: { width: 1, color: '#00ffff' }
+                type: 'circle',
+                stroke: { width: 0 }
             },
             opacity: {
-                value: 0.7,
-                random: true,
-                anim: { enable: true, speed: 0.8, opacity_min: 0.1, sync: false }
+                value: 0.6,
+                random: false,
+                anim: { enable: true, speed: 0.5, opacity_min: 0.2, sync: false }
             },
             size: {
-                value: 4,
+                value: 2,
                 random: true,
-                anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
+                anim: { enable: true, speed: 1, size_min: 0.5, sync: false }
             },
             line_linked: {
                 enable: true,
                 distance: 150,
                 color: '#00ffff',
-                opacity: 0.4,
-                width: 1
+                opacity: 0.3,
+                width: 1,
+                shadow: {
+                    enable: true,
+                    blur: 5,
+                    color: '#00ffff'
+                }
             },
             move: {
                 enable: true,
                 speed: 2,
-                direction: 'top',
-                random: true,
+                direction: 'none',
+                random: false,
                 straight: false,
                 out_mode: 'out',
                 bounce: false,
-                attract: { enable: false }
+                attract: {
+                    enable: true,
+                    rotateX: 1200,
+                    rotateY: 1500
+                }
             }
         },
         interactivity: {
             detect_on: 'window',
             events: {
-                onhover: { enable: true, mode: 'repulse' },
-                onclick: { enable: true, mode: 'bubble' },
+                onhover: {
+                    enable: true,
+                    mode: 'repulse',
+                    parallax: {
+                        enable: true,
+                        force: 60,
+                        smooth: 20
+                    }
+                },
+                onclick: {
+                    enable: true,
+                    mode: 'push'
+                },
                 resize: true
             },
             modes: {
-                repulse: { distance: 100, duration: 0.4 },
-                bubble: { distance: 200, size: 8, duration: 2, opacity: 0.8, speed: 3 }
+                repulse: {
+                    distance: 150,
+                    duration: 0.4,
+                    speed: 1,
+                    factor: 5,
+                    maxSpeed: 50,
+                    easing: 'ease-out-quad'
+                },
+                push: {
+                    particles_nb: 4,
+                    particles_opacity: 0.5,
+                    particles_size: 1
+                }
             }
-        }
+        },
+        retina_detect: true,
+        fps_limit: 60
     },
     blog: {
         particles: {

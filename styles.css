@@ -290,14 +290,17 @@ body {
 }
 
 .project-item {
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--card-bg);
     padding: 1.5rem;
     border-radius: 10px;
     transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .project-item:hover {
     transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .project-meta {
