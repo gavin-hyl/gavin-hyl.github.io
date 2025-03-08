@@ -1,0 +1,11 @@
+title: Gavin Hua's Portfolio
+description: Electrical Engineering and Robotics Portfolio
+baseurl: ""
+url: ""
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .jekyll-cache/
+  - .sass-cache/
+  - .github/
+  - README.md
