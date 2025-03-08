@@ -161,16 +161,45 @@ body {
 .contact-info {
     margin-top: 1rem;
     font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
 }
 
 .contact-link {
     color: var(--link-color);
     text-decoration: none;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    background: rgba(0, 255, 255, 0.05);
 }
 
 .contact-link:hover {
-    opacity: 0.8;
+    background: rgba(0, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.1);
+}
+
+.contact-link i {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-link:hover i {
+    transform: scale(1.1);
+}
+
+.contact-separator {
+    width: 4px;
+    height: 4px;
+    background: var(--link-color);
+    border-radius: 50%;
+    opacity: 0.5;
 }
 
 /* Text Styles */
