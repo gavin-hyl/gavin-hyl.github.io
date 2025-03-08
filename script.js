@@ -66,103 +66,180 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // Particles.js Configuration
-particlesJS('particles-js', {
-    particles: {
-        number: {
-            value: 80,
-            density: {
+const particleConfigs = {
+    home: {
+        particles: {
+            number: { value: 100, density: { enable: true, value_area: 1000 } },
+            color: { value: ['#00ffff', '#2d00f7', '#ff0080'] },
+            shape: { type: 'circle' },
+            opacity: {
+                value: 0.6,
+                random: true,
+                anim: { enable: true, speed: 0.5, opacity_min: 0.1, sync: false }
+            },
+            size: {
+                value: 3,
+                random: true,
+                anim: { enable: true, speed: 1, size_min: 0.1, sync: false }
+            },
+            line_linked: {
                 enable: true,
-                value_area: 800
+                distance: 150,
+                color: '#00ffff',
+                opacity: 0.3,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 1.5,
+                direction: 'none',
+                random: true,
+                straight: false,
+                out_mode: 'out',
+                bounce: false,
+                attract: { enable: true, rotateX: 600, rotateY: 1200 }
             }
         },
-        color: {
-            value: '#00ffff'
-        },
-        shape: {
-            type: 'circle'
-        },
-        opacity: {
-            value: 0.5,
-            random: false,
-            anim: {
-                enable: true,
-                speed: 1,
-                opacity_min: 0.1,
-                sync: false
+        interactivity: {
+            detect_on: 'window',
+            events: {
+                onhover: { enable: true, mode: ['grab', 'bubble'] },
+                onclick: { enable: true, mode: 'push' },
+                resize: true
+            },
+            modes: {
+                grab: { distance: 200, line_linked: { opacity: 0.8 } },
+                bubble: { distance: 250, size: 6, duration: 2, opacity: 0.8, speed: 3 },
+                repulse: { distance: 200, duration: 0.4 },
+                push: { particles_nb: 4 },
+                remove: { particles_nb: 2 }
             }
-        },
-        size: {
-            value: 3,
-            random: true,
-            anim: {
+        }
+    },
+    projects: {
+        particles: {
+            number: { value: 60, density: { enable: true, value_area: 800 } },
+            color: { value: ['#00ffff', '#ff0080'] },
+            shape: {
+                type: ['circle', 'triangle'],
+                stroke: { width: 1, color: '#00ffff' }
+            },
+            opacity: {
+                value: 0.7,
+                random: true,
+                anim: { enable: true, speed: 0.8, opacity_min: 0.1, sync: false }
+            },
+            size: {
+                value: 4,
+                random: true,
+                anim: { enable: true, speed: 2, size_min: 0.1, sync: false }
+            },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: '#00ffff',
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
                 enable: true,
                 speed: 2,
-                size_min: 0.1,
-                sync: false
+                direction: 'top',
+                random: true,
+                straight: false,
+                out_mode: 'out',
+                bounce: false,
+                attract: { enable: false }
             }
         },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: '#00ffff',
-            opacity: 0.3,
-            width: 1
-        },
-        move: {
-            enable: true,
-            speed: 2,
-            direction: 'none',
-            random: false,
-            straight: false,
-            out_mode: 'bounce',
-            bounce: false,
-            attract: {
-                enable: false,
-                rotateX: 600,
-                rotateY: 1200
+        interactivity: {
+            detect_on: 'window',
+            events: {
+                onhover: { enable: true, mode: 'repulse' },
+                onclick: { enable: true, mode: 'bubble' },
+                resize: true
+            },
+            modes: {
+                repulse: { distance: 100, duration: 0.4 },
+                bubble: { distance: 200, size: 8, duration: 2, opacity: 0.8, speed: 3 }
             }
         }
     },
-    interactivity: {
-        detect_on: 'window',
-        events: {
-            onhover: {
-                enable: true,
-                mode: ['grab', 'bubble']
+    blog: {
+        particles: {
+            number: { value: 40, density: { enable: true, value_area: 800 } },
+            color: { value: '#00ffff' },
+            shape: {
+                type: 'polygon',
+                stroke: { width: 1, color: '#00ffff' },
+                polygon: { nb_sides: 6 }
             },
-            onclick: {
-                enable: true,
-                mode: 'push'
+            opacity: {
+                value: 0.5,
+                random: true,
+                anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false }
             },
-            resize: true
+            size: {
+                value: 5,
+                random: true,
+                anim: { enable: true, speed: 1, size_min: 0.1, sync: false }
+            },
+            line_linked: {
+                enable: true,
+                distance: 200,
+                color: '#00ffff',
+                opacity: 0.2,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 1,
+                direction: 'none',
+                random: false,
+                straight: false,
+                out_mode: 'bounce',
+                attract: { enable: true, rotateX: 600, rotateY: 1200 }
+            }
         },
-        modes: {
-            grab: {
-                distance: 200,
-                line_linked: {
-                    opacity: 0.8
-                }
+        interactivity: {
+            detect_on: 'window',
+            events: {
+                onhover: { enable: true, mode: 'connect' },
+                onclick: { enable: true, mode: 'push' },
+                resize: true
             },
-            bubble: {
-                distance: 200,
-                size: 6,
-                duration: 0.3,
-                opacity: 0.8,
-                speed: 3
-            },
-            repulse: {
-                distance: 200,
-                duration: 0.4
-            },
-            push: {
-                particles_nb: 4
-            },
-            remove: {
-                particles_nb: 2
+            modes: {
+                connect: { distance: 200, line_linked: { opacity: 0.5 }, radius: 150 },
+                push: { particles_nb: 2 }
             }
         }
-    },
-    retina_detect: true
+    }
+};
+
+// Initialize particles based on current page
+document.addEventListener('DOMContentLoaded', () => {
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    let config;
+
+    if (currentPath.includes('projects')) {
+        config = particleConfigs.projects;
+    } else if (currentPath.includes('blog')) {
+        config = particleConfigs.blog;
+    } else {
+        config = particleConfigs.home;
+    }
+
+    // Add retina detect to all configs
+    config.retina_detect = true;
+
+    // Initialize particles
+    particlesJS('particles-js', config);
+
+    // Add smooth transition to particles canvas
+    const particles = document.querySelector('#particles-js');
+    if (particles) {
+        particles.style.transition = 'transform 0.2s ease-out';
+    }
 });
 
 // Smooth scroll for navigation links
@@ -209,6 +286,67 @@ document.querySelectorAll('.card, .intro-text').forEach(el => {
     observer.observe(el);
 });
 
-// Add smooth transition to particles canvas
-const particles = document.querySelector('#particles-js');
-particles.style.transition = 'transform 0.2s ease-out'; 
+// Create page transition overlay
+document.addEventListener('DOMContentLoaded', () => {
+    const overlay = document.createElement('div');
+    overlay.className = 'page-transition-overlay';
+    document.body.appendChild(overlay);
+
+    // Check if this is a page load from navigation
+    const isFromNavigation = sessionStorage.getItem('isNavigating');
+    if (isFromNavigation) {
+        overlay.classList.add('active');
+        requestAnimationFrame(() => {
+            overlay.classList.add('fade-out');
+            setTimeout(() => {
+                overlay.classList.remove('active', 'fade-out');
+            }, 800);
+        });
+        sessionStorage.removeItem('isNavigating');
+    } else {
+        overlay.classList.add('initial-load');
+    }
+
+    // Handle all navigation links
+    document.querySelectorAll('a').forEach(link => {
+        // Skip hash links (smooth scroll)
+        if (link.getAttribute('href')?.startsWith('#')) return;
+        
+        link.addEventListener('click', (e) => {
+            const isExternalLink = link.getAttribute('href')?.startsWith('http') || 
+                                 link.getAttribute('target') === '_blank';
+            
+            // Don't handle external links
+            if (isExternalLink) return;
+            
+            e.preventDefault();
+            const href = link.getAttribute('href');
+            
+            // Set navigation state
+            sessionStorage.setItem('isNavigating', 'true');
+            
+            // Start transition
+            const container = document.querySelector('.container');
+            container.classList.add('fade-out');
+            overlay.classList.add('active');
+            
+            // Navigate after transition
+            setTimeout(() => {
+                window.location.href = href;
+            }, 500);
+        });
+    });
+
+    // Handle back/forward browser navigation
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) {
+            overlay.classList.add('active', 'fade-out');
+            setTimeout(() => {
+                overlay.classList.remove('active', 'fade-out');
+            }, 800);
+            
+            const container = document.querySelector('.container');
+            container.classList.remove('fade-out');
+        }
+    });
+}); 
