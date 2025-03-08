@@ -47,20 +47,27 @@ document.addEventListener('DOMContentLoaded', () => {
 // Mouse move parallax effect for background
 document.addEventListener('mousemove', (e) => {
     const background = document.querySelector('.background-animation');
+    const particles = document.querySelector('#particles-js');
+    
+    // Calculate movement based on mouse position
     const x = e.clientX / window.innerWidth;
     const y = e.clientY / window.innerHeight;
     
-    background.style.transform = `translate(${x * 20}px, ${y * 20}px)`;
+    // Move background (slower movement)
+    background.style.transform = `translate(${x * 30}px, ${y * 30}px)`;
+    
+    // Move particles canvas (faster movement)
+    particles.style.transform = `translate(${x * -15}px, ${y * -15}px)`;
 });
 
 // Particles.js Configuration
 particlesJS('particles-js', {
     particles: {
         number: {
-            value: 80,
+            value: 100,
             density: {
                 enable: true,
-                value_area: 800
+                value_area: 1000
             }
         },
         color: {
@@ -70,8 +77,8 @@ particlesJS('particles-js', {
             type: 'circle'
         },
         opacity: {
-            value: 0.5,
-            random: false,
+            value: 0.6,
+            random: true,
             animation: {
                 enable: true,
                 speed: 1,
@@ -93,17 +100,22 @@ particlesJS('particles-js', {
             enable: true,
             distance: 150,
             color: '#00ffff',
-            opacity: 0.2,
+            opacity: 0.3,
             width: 1
         },
         move: {
             enable: true,
-            speed: 2,
+            speed: 3,
             direction: 'none',
             random: true,
             straight: false,
             out_mode: 'out',
             bounce: false,
+            attract: {
+                enable: true,
+                rotateX: 600,
+                rotateY: 1200
+            }
         }
     },
     interactivity: {
@@ -111,7 +123,7 @@ particlesJS('particles-js', {
         events: {
             onhover: {
                 enable: true,
-                mode: 'grab'
+                mode: 'repulse'
             },
             onclick: {
                 enable: true,
@@ -120,11 +132,9 @@ particlesJS('particles-js', {
             resize: true
         },
         modes: {
-            grab: {
-                distance: 140,
-                line_linked: {
-                    opacity: 0.5
-                }
+            repulse: {
+                distance: 100,
+                duration: 0.4
             },
             push: {
                 particles_nb: 4
@@ -176,4 +186,8 @@ document.querySelectorAll('.card, .intro-text').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(20px)';
     observer.observe(el);
-}); 
+});
+
+// Add smooth transition to particles canvas
+const particles = document.querySelector('#particles-js');
+particles.style.transition = 'transform 0.2s ease-out'; 

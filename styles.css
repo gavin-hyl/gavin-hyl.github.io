@@ -3,7 +3,7 @@
     --secondary-color: #ff0080;
     --text-color: #e0e0e0;
     --bg-color: #0a0a0a;
-    --card-bg: rgba(255, 255, 255, 0.05);
+    --card-bg: rgba(255, 255, 255, 0.08);
     --link-color: #00ffff;
     --tag-bg: rgba(45, 0, 247, 0.2);
     --highlight-color: rgba(0, 255, 255, 0.1);
@@ -106,9 +106,10 @@ body {
     height: 100%;
     z-index: -2;
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    opacity: 0.15;
+    opacity: 0.2;
     animation: gradientBG 15s ease infinite;
     background-size: 400% 400%;
+    transition: transform 0.1s ease-out;
 }
 
 @keyframes gradientBG {
