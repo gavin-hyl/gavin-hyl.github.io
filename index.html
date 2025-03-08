@@ -11,6 +11,18 @@
 </head>
 <body>
     <div class="background-animation"></div>
+    <div id="particles-js"></div>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">GH</a>
+            <div class="nav-links">
+                <a href="about.html" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+            </div>
+        </div>
+    </nav>
+    
     <main class="container">
         <header class="header">
             <h1 class="glitch-text">Gavin Hua</h1>
@@ -22,76 +34,22 @@
         </header>
         
         <section class="content">
-            <div class="card">
-                <h2>Education</h2>
-                <div class="education-item">
-                    <h3>California Institute of Technology</h3>
-                    <p class="education-details">B.S. in Electrical Engineering (Intelligent Systems track)</p>
-                    <p class="education-meta">GPA: 4.2/4.3 | Expected Jun. 2027</p>
-                    <p class="education-courses">Key Courses: ML & Data Mining, Circuit Analysis, Analog Circuit Design, Data-Driven Control, Robotics, Data Structures & Algorithms, Large Language & Vision Models, Signal Processing</p>
+            <div class="card featured-card intro-card">
+                <h2>Hello, World! 👋</h2>
+                <p class="intro-text">I'm a passionate engineer exploring the frontiers of robotics and artificial intelligence at Caltech. My journey involves crafting intelligent systems that bridge the gap between theoretical concepts and real-world applications.</p>
+                <p class="intro-text highlight">Currently, I'm diving deep into advanced robotics control systems and developing novel reinforcement learning algorithms. I believe in building technology that pushes the boundaries of what's possible while remaining practical and impactful.</p>
+                <div class="cta-buttons">
+                    <a href="about.html" class="cta-button">Learn More About Me</a>
+                    <a href="projects.html" class="cta-button">View My Projects</a>
                 </div>
             </div>
 
             <div class="card">
-                <h2>Research Experience</h2>
-                <div class="experience-item">
-                    <h3>Autonomous Control and Robotics Lab</h3>
-                    <p class="role">Research Intern - Prof. Soon-Jo Chung's group</p>
-                    <p class="date">Nov 2024 - Present</p>
-                    <ul>
-                        <li>Developing Monte Carlo Tree Search (MCTS) algorithm with Thompson sampling</li>
-                        <li>Creating box-moving reinforcement learning environment for algorithm comparison</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <h3>AMBER Lab</h3>
-                    <p class="role">Summer Undergraduate Research Fellow (SURF) - Prof. Aaron Ames' group</p>
-                    <p class="date">Mar 2024 - Sep 2024</p>
-                    <ul>
-                        <li>Developed real-time model predictive control library (TORC) in C++</li>
-                        <li>Created unified control interface for robots using ROS</li>
-                        <li>Managed complex build systems with CMake and Docker</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>Technical Projects</h2>
-                <div class="project-grid">
-                    <div class="project-item">
-                        <h3>Machine Learning Applications</h3>
-                        <p class="project-meta">With Prof. Yisong Yue</p>
-                        <ul>
-                            <li>Built ensemble ML models achieving top accuracy among 50+ competitors</li>
-                            <li>Implemented matrix factorization for MovieLens dataset analysis</li>
-                            <li>Developed HMM for Shakespearean text generation</li>
-                        </ul>
-                    </div>
-                    <div class="project-item">
-                        <h3>Computer Engineering Projects</h3>
-                        <p class="project-meta">With Prof. Glen George</p>
-                        <ul>
-                            <li>Designed RISC CPU with Harvard Architecture</li>
-                            <li>Implemented balance game system with ATMega64 in AVR assembly</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
-                <h2>Technical Skills</h2>
+                <h2>Featured Skills</h2>
                 <div class="skills-grid">
                     <div class="skill-category">
                         <h3>Programming</h3>
                         <p>Python, C++, C, AVR Assembly</p>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Hardware</h3>
-                        <p>Altium Designer, KiCad</p>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Software Tools</h3>
-                        <p>Git/GitHub, CMake, Docker, Linux</p>
                     </div>
                     <div class="skill-category">
                         <h3>ML/AI</h3>
@@ -99,8 +57,18 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card">
+                <h2>Latest Research</h2>
+                <div class="experience-item">
+                    <h3>Autonomous Control and Robotics Lab</h3>
+                    <p class="role">Research Intern - Prof. Soon-Jo Chung's group</p>
+                    <p>Currently working on advanced Monte Carlo Tree Search algorithms with Thompson sampling.</p>
+                </div>
+            </div>
         </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html> 
