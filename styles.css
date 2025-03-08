@@ -187,6 +187,8 @@ body {
     gap: 1rem;
     justify-content: center;
     margin-top: 2rem;
+    z-index: 10;
+    position: relative;
 }
 
 .cta-button {
@@ -194,10 +196,13 @@ body {
     padding: 0.8rem 1.5rem;
     border-radius: 8px;
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    color: white;
-    text-decoration: none;
+    color: white !important;
+    text-decoration: none !important;
     font-weight: 500;
     transition: transform 0.3s ease, opacity 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 100;
 }
 
 .cta-button:hover {
