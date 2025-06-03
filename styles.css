@@ -353,6 +353,29 @@ body {
     opacity: 0.8;
 }
 
+/* Repository List */
+.repo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.repo-item {
+    margin-bottom: 1rem;
+}
+
+.repo-item a {
+    color: var(--link-color);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.repo-item p {
+    margin: 0.25rem 0 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
 /* Skills Grid */
 .skills-grid {
     display: grid;
