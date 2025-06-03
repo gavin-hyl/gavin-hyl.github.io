@@ -371,15 +371,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Handle back/forward browser navigation
-    window.addEventListener('pageshow', (event) => {
+window.addEventListener('pageshow', (event) => {
         if (event.persisted) {
             overlay.classList.add('active', 'fade-out');
             setTimeout(() => {
                 overlay.classList.remove('active', 'fade-out');
             }, 800);
-            
+
             const container = document.querySelector('.container');
             container.classList.remove('fade-out');
         }
     });
-}); 
+});
+
+// Fetch and display GitHub repositories on the repos page
+document.addEventListener('DOMContentLoaded', () => {
+    const repoList = document.getElementById('repo-list');
+    if (repoList) {
+        fetch('repos_static.json')
+            .then(res => res.json())
+            .then(repos => {
+                repos.forEach(repo => {
+                    const item = document.createElement('li');
+                    item.className = 'repo-item';
+                    const link = document.createElement('a');
+                    link.href = repo.html_url;
+                    link.target = '_blank';
+                    link.textContent = repo.name;
+                    item.appendChild(link);
+                    if (repo.description) {
+                        const desc = document.createElement('p');
+                        desc.textContent = repo.description;
+                        item.appendChild(desc);
+                    }
+                    repoList.appendChild(item);
+                });
+            })
+            .catch(() => {
+                repoList.textContent = 'Failed to load repositories.';
+            });
+    }
+});
