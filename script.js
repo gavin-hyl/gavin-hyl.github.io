@@ -388,7 +388,7 @@ window.addEventListener('pageshow', (event) => {
 document.addEventListener('DOMContentLoaded', () => {
     const repoList = document.getElementById('repo-list');
     if (repoList) {
-        fetch('https://api.github.com/users/gavin-hyl/repos?per_page=100&sort=pushed')
+        fetch('repos_static.json')
             .then(res => res.json())
             .then(repos => {
                 repos.forEach(repo => {

@@ -1,0 +1,102 @@
+[
+  {
+    "name": "169bot",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/169bot"
+  },
+  {
+    "name": "autonomous_exploration_of_unknown_environments",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/autonomous_exploration_of_unknown_environments"
+  },
+  {
+    "name": "box-move",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/box-move"
+  },
+  {
+    "name": "caltech-cs129",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/caltech-cs129"
+  },
+  {
+    "name": "caltech-cs155-project2",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/caltech-cs155-project2"
+  },
+  {
+    "name": "caltech-ee10b",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/caltech-ee10b"
+  },
+  {
+    "name": "cds245-hw3",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/cds245-hw3"
+  },
+  {
+    "name": "cs38",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/cs38"
+  },
+  {
+    "name": "elevator-optim",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/elevator-optim"
+  },
+  {
+    "name": "fault-capture-demo",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/fault-capture-demo"
+  },
+  {
+    "name": "gavin-hyl.github.io",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/gavin-hyl.github.io"
+  },
+  {
+    "name": "kr-solutions",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/kr-solutions"
+  },
+  {
+    "name": "markplotlib",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/markplotlib"
+  },
+  {
+    "name": "mjc_tests",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/mjc_tests"
+  },
+  {
+    "name": "MPCC",
+    "description": "Model Predictive Contouring Controller (MPCC) for Autonomous Racing",
+    "html_url": "https://github.com/gavin-hyl/MPCC"
+  },
+  {
+    "name": "pedal-board-2024",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/pedal-board-2024"
+  },
+  {
+    "name": "pythonhmm",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/pythonhmm"
+  },
+  {
+    "name": "robot-arm-pong",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/robot-arm-pong"
+  },
+  {
+    "name": "simple-quad-sim",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/simple-quad-sim"
+  },
+  {
+    "name": "tachometer-2024",
+    "description": null,
+    "html_url": "https://github.com/gavin-hyl/tachometer-2024"
+  }
+]
