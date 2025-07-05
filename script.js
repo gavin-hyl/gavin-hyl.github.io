@@ -388,8 +388,15 @@ window.addEventListener('pageshow', (event) => {
 document.addEventListener('DOMContentLoaded', () => {
     const repoList = document.getElementById('repo-list');
     if (repoList) {
-        fetch('repos_static.json')
-            .then(res => res.json())
+        const githubApi = 'https://api.github.com/users/gavin-hyl/repos?per_page=100&sort=updated';
+        fetch(githubApi)
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
+            .catch(() => fetch('repos_static.json').then(r => r.json()))
             .then(repos => {
                 repos.forEach(repo => {
                     const item = document.createElement('li');
